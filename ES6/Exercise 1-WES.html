@@ -84,6 +84,53 @@
         };
 
         console.log(dog);
+        //##########################################################
+
+        const modal = {
+            //With object literal, rather than writing the full function like below, you can remove the 'function()' and use the following; REMEMBER not to use arrow functions in Objects
+            //create: function() {};
+
+            create(param) {
+
+            },
+            newObj(param) {
+
+            },
+            num(param) {
+
+            }
+        };
+
+        //##########################################################
+
+        const key = 'pocketColor';
+        const value = '#ffc600';
+
+        const tShirt = {
+            [key]: value, //{pocketColor,#ffc600}
+            //so Incase you want to creat an opposite color printed on a new  shirt, you can create another by...
+            [`${key}Opppsite`]: inverseColor(value)
+        };
+
+        function inverseColor(color) {
+            return '#' + ("000000" + (0xFFFFFF ^ parseInt(color.substring(1), 16)).toString(16)).slice(-6);
+        }
+
+        //##########################################################
+        // Incase you get a string of arrays from an  API and you want to link 2 array values to each other...
+
+        const keys = ['red', 'yellow', 'green'];
+
+        const sizes = ['small', 'medium', 'green'];
+
+        const shirt = {
+            [keys.shift()]: sizes.shift(),
+            [keys.shift()]: sizes.shift(),
+            [keys.shift()]: sizes.shift()
+        };
+
+        console.log(shirt); //{red: "small", yellow: "medium", green: "green"}
+        console.log(shirt).[0];
     </script>
 </body>
 
