@@ -761,3 +761,85 @@ const featured = ["tomatoes", 'onions', 'cabbage', 'carrot'];
         inventor.push.apply(inventors, newInventors);
         
         console.log(inventors);
+
+
+
+    //##########################################################
+    //32- Object Literal Upgrade
+    //###########################################################
+        const first = 'Keno';
+        const last = 'Kopo';
+        const breed = 'Alsatian';
+        const age = 4;
+        const dog = {
+            first,
+            breed,
+            last,
+            age
+        };
+
+        console.log(dog.first);
+
+
+        //##########################################################
+
+        const modal = {
+            //With object literal, rather than writing the full function like below, you can remove the 'function()' and use the following; REMEMBER not to use arrow functions in Objects
+            //create: function() {};
+
+            create(param) {
+
+            },
+            newObj(param) {
+
+            },
+            num(param) {
+
+            }
+        };
+
+        //##########################################################
+
+        const key = 'pocketColor';
+        const value = '#ffc600';
+
+        const tShirt = {
+            [key]: value, //{pocketColor,#ffc600}
+            //so Incase you want to create an opposite color printed on a new  shirt, you can create another by...
+            [`${key}Opppsite`]: inverseColor(value)
+        };
+
+        function inverseColor(color) {
+            return '#' + ("000000" + (0xFFFFFF ^ parseInt(color.substring(1), 16)).toString(16)).slice(-6);
+        }
+
+        //##########################################################
+        // Incase you get a string of arrays from an  API and you want to link 2 array values to each other...
+
+        const keys = ['red', 'yellow', 'green'];
+
+        const sizes = ['small', 'medium', 'green'];
+
+        const shirt = {
+            [keys.shift()]: sizes.shift(),
+            [keys.shift()]: sizes.shift(),
+            [keys.shift()]: sizes.shift()
+        };
+
+        console.log(shirt); //{red: "small", yellow: "medium", green: "green"}
+
+        console.log(shirt.red); //small
+
+    //##########################################################
+    //34 - Promises
+    //###########################################################
+        // Promises are use when fetching JSON Api
+
+        const  postsPromise = fetch('http://wesbos.com/wp-json/wp/v2/posts');
+        
+        postsPromise.then(data =>data.json()).then(data =>  {
+                console.log(data)
+            })
+            .catch((err) => {
+                console.error(err);
+            })
