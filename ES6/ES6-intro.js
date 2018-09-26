@@ -834,7 +834,7 @@ const featured = ["tomatoes", 'onions', 'cabbage', 'carrot'];
     //34 - Promises
     //###########################################################
         // Promises are use when fetching JSON Api
-
+        // So withe the code below, the created postsPromise, will go to the url and then fetch the data.json file. And if there is an error the(.catch) will log it
         const  postsPromise = fetch('http://wesbos.com/wp-json/wp/v2/posts');
         
         postsPromise.then(data =>data.json()).then(data =>  {
@@ -842,4 +842,16 @@ const featured = ["tomatoes", 'onions', 'cabbage', 'carrot'];
             })
             .catch((err) => {
                 console.error(err);
+            })
+
+    //#########################################################
+    //35 - Building your own Promises
+    //###########################################################
+
+            const p = new Promise((resolve, reject) => {
+                reslove('All La cool');
+            });
+
+            p.then(data => {
+                console.log(data);
             })
